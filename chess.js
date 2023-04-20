@@ -71,6 +71,7 @@ function insertChessPieces(){
 function dragChessPieces(){
     $('.chess-piece').draggable({
         containment: "#chessBoard",
+        cursor: "move", cursorAt: { top: 24, left: 15 },
         drag: function (event, ui){
             $(event.target).css('position', 'absolute');
         }
