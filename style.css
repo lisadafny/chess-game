@@ -31,6 +31,8 @@ nav h1{
     align-items: center;
     display: flex;
     justify-content: center;
+    height: 10vh;
+    width: 10vh;
 }
 .chess-square:nth-of-type(2n){
     background-color: #8C6529;
@@ -43,6 +45,7 @@ nav h1{
 }
 i.chess-piece{
     position: absolute;
+    cursor: pointer;
 }
 .white::before{
     color: #fff;

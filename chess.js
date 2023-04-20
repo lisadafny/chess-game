@@ -1,6 +1,8 @@
 $(document).ready(function () {
     createChessBoard();
     insertChessPieces();
+    dragChessPieces();
+    dropChessPieces();
 });
 
 function createChessBoard(){
@@ -64,4 +66,28 @@ function insertChessPieces(){
     $('.chess-square:eq(50)').append(pawnW);
     $('.chess-square:eq(49)').append(pawnW);
     $('.chess-square:eq(48)').append(pawnW);
+}
+
+function dragChessPieces(){
+    $('.chess-piece').draggable({
+        containment: "#chessBoard",
+        // snap: ".chess-square",
+        // start: function (event, ui){
+        //     $(event.target).css('position', 'relative');
+        // },
+        drag: function (event, ui){
+            $(event.target).css('position', 'absolute');
+        }
+    });
+}
+
+function dropChessPieces(){
+    $(".chess-square").droppable({
+        drop: function (event, ui) {
+            let taskCard = ui.helper;
+            let section = event.target
+            $(taskCard).appendTo($(section));
+            $(taskCard).css('position', 'static');
+        }
+    });
 }
